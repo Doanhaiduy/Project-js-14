@@ -1,0 +1,114 @@
+body {
+    height: 100vh;
+    width: 100vw;
+    font-family: "Poppins", sans-serif;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #eee;
+}
+
+body::after {
+    content: "";
+    height: 50%;
+    width: 100%;
+    background-color: #2cccff;
+    position: absolute;
+    top: 0;
+}
+
+.container {
+    text-align: center;
+    /* padding: 20px; */
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.active .item {
+    transform: translateX(200%);
+    /* display: none; */
+    visibility: hidden;
+    opacity: 0;
+}
+
+.list {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    padding: 10px 40px 10px 20px;
+    width: 100%;
+    transition: width 1s linear;
+    box-shadow: 0 0 9px #484242;
+    border-radius: 5px;
+}
+.active.list {
+    width: 40px;
+}
+
+.item {
+    transition: 1s linear;
+}
+
+a {
+    color: #000;
+    text-decoration: none;
+    font-size: 2rem;
+    padding: 10px 20px;
+}
+
+.icon {
+    align-self: center;
+    height: 40px;
+    width: 40px;
+    cursor: pointer;
+    transition: 0.5s linear;
+    color: transparent;
+    /* background-color: red; */
+    /* right: 30px; */
+    user-select: none;
+    /* transform: translateX(-50%); */
+}
+
+.active .icon {
+}
+
+.icon::before {
+    position: absolute;
+    content: "";
+    display: block;
+    height: 3px;
+    width: 30px;
+    border-radius: 4px;
+    background-color: #2cccff;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%) rotate(45deg);
+    transition: 1s linear;
+}
+
+.icon::after {
+    position: absolute;
+    content: "";
+    display: block;
+    height: 3px;
+    width: 30px;
+    border-radius: 4px;
+    background-color: #2cccff;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%) rotate(-45deg);
+    transition: 1s linear;
+}
+
+.active .icon::before {
+    transform: translate(-210px, 6px) rotate(-1800deg);
+}
+
+.active .icon::after {
+    transform: translate(-210px, -6px) rotate(1800deg);
+}
